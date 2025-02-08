@@ -37,7 +37,7 @@ async fn main() -> anyhow::Result<()> {
     let port = std::env::var("PORT").unwrap().parse::<u16>().unwrap();
     let addr = std::net::SocketAddr::from(([0, 0, 0, 0], port));
 
-    info!("router initialized, not listening on port {}", port);
+    info!("router initialized, now listening on port {}", port);
 
     axum::Server::bind(&addr)
         .serve(app.into_make_service())
